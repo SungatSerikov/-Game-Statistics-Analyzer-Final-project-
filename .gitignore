@@ -1,0 +1,13 @@
+# Кэш Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Виртуальные окружения (на будущее)
+venv/
+env/
+.env
+
+# Системные файлы Mac/Windows
+.DS_Store
+Thumbs.db
