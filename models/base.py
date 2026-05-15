@@ -6,3 +6,6 @@ class User:
     def name(self) -> str:
         return self.__name
 
+    def display_info(self) -> str:
+        return f"User: {self.name}"
+

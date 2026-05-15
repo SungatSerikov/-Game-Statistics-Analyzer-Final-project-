@@ -26,12 +26,26 @@ class Player(User):
     def played_dates(self) -> set:
         return self.__played_dates
 
+    def display_info(self) -> str: #полиморфизм
+        return f"Player: {self.name} | Total matches: {len(self.__match_history)}"
+
+    def to_dict(self) -> dict: #конвертация в словарь
+        return {
+            "player": self.name,
+            "matches": [{"score": m.score, "date": m.date} for m in self.__match_history]
+        }
+
 # if __name__ == "__main__":
+#     u = User("GenericUser")
 #     p = Player("Alice")
-#     m1 = MatchRecord(score=120, date="2026-01-01")
-#     p.add_match(m1)
+#     p.add_match(MatchRecord(score=120, date="2026-01-01"))
+#     p.add_match(MatchRecord(score=180, date="2026-01-02"))
     
-#     print(f"Игрок: {p.name}")
-#     print(f"История игр: {p.match_history}")
-#     print(f"Игрок играл в эти даты: {p.played_dates}")
+#     print("--- Демонстрация полиморфизма ---")
+#     users_list = [u, p]
+#     for person in users_list:
+#         print(person.display_info())
+
+#     print("\n--- Демонстрация конвертации в словарь (to_dict) ---")
+#     print(p.to_dict())
 
