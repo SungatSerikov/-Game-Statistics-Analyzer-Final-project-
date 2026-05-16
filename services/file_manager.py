@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from models.player_models import Player, MatchRecord
 from services.decorators import time_logger
 
@@ -16,13 +17,17 @@ def read_players_file(filename):
     player_map = {}
     try:
         for player_data in player_generator(filename):
-            player_name = player_data['player']
+            player_name = player_data.get("player")
+            if not player_name or player_name.strip() == "":
+                print("Player name is missing or empty. Skipping entry.")
+                continue
             if player_name not in player_map:
                     players.append(Player(player_name))
                     player_map[player_name] = players[len(players)-1]
             try:
                 score = int(player_data["score"])
                 date = player_data["date"]
+                datetime.strptime(date, "%Y-%m-%d")
             except (ValueError, KeyError):
                 print(f"Failed to import {player_name}")
                 continue
@@ -45,7 +50,17 @@ def save_report(players, filename):
         json.dump(report, file, indent=4)
     print("Report saved successfully!")
 
+@time_logger
+def map_players_by_name(players):
+    return {player.name: player for player in players}
 
+@time_logger
+def str2date(date_str):
+    try:
+        return datetime.strptime(date_str, "%Y-%m-%d")
+    except ValueError:
+        print(f"Invalid date format: {date_str}")
+        return None
 
 players = read_players_file("data/input.json")
 for p in players:
