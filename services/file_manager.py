@@ -62,7 +62,7 @@ def str2date(date_str):
         print(f"Invalid date format: {date_str}")
         return None
 
-players = read_players_file("data/input.json")
-for p in players:
-    print(p.display_info())
-save_report(players, "data/report.json")
+#players = read_players_file("data/input.json")
+#for p in players:
+    #print(p.display_info())
+#save_report(players, "data/report.json")
