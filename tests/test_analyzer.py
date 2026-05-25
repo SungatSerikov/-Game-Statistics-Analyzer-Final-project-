@@ -32,6 +32,11 @@ class TestAnalyzer (unittest.TestCase):
                         averages = get_average_scores([empty])
                         self.assertEqual(averages["Empty"],0.0)
 
+                        def test_single_player(self):
+                            leaderboard = get_leaderboard([self.p1])
+                            self.assertEqual(len(leaderboard),1)
+                            self.assertEqual(leaderboard[0].name,"Maksat")
+
 
 
 
