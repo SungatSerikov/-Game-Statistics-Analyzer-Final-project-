@@ -13,3 +13,8 @@ class TestAnalyzer (unittest.TestCase):
 
         self.players = [self.p1, self.p2]
 
+        def test_average_scores(self):
+            averages = get_average_scores(self.players)
+            self.assertEqual(averages["Maksat"],150)
+            self.assertEqual(averages["Addema"],50)
+
