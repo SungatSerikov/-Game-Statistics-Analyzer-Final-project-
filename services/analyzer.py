@@ -17,3 +17,12 @@ def get_average_scores(players: list) -> dict:
     return averages
 
 
+@time_logger
+def get_leaderboard(players: list) -> list:
+    leaderboard = sorted(
+        players,
+        key=lambda player: _calculate_average(player),
+        reverse=True
+    )
+    return leaderboard 
+
