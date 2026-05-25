@@ -4,6 +4,12 @@ from services.analyzer import get_average_scores,get_leaderboard,get_best_perfor
 
 class TestAnalyzer (unittest.TestCase):
     def setUp(self):
-        self.p1 = Player("Alice")
+        self.p1 = Player("Maksat")
         self.p1.add_match(MatchRecord(100, "2026-01-01"))
         self.p1.add_match(MatchRecord(200, "2026-01-02"))
+
+        self.p2 = Player("Adema")
+        self.p2.add_match(MatchRecord(50,"2026-01-01"))
+
+        self.players = [self.p1, self.p2]
+
