@@ -22,6 +22,12 @@ class TestAnalyzer (unittest.TestCase):
                 leaderboard = get_leaderboard(self.players)
                 self.assertEqual(leaderboard[0].name,"Maksat")
 
+                def test_best_performance(self):
+                    best = get_best_performance(self.players)
+                    self.assertEqual(best["player"],"Maksat")
+                    self.assertEqual(best["score"],200)
+
+
 
 
 
