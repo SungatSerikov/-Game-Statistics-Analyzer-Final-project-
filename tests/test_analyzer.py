@@ -18,3 +18,10 @@ class TestAnalyzer (unittest.TestCase):
             self.assertEqual(averages["Maksat"],150)
             self.assertEqual(averages["Addema"],50)
 
+            def test_leaderboard(self):
+                leaderboard = get_leaderboard(self.players)
+                self.assertEqual(leaderboard[0].name,"Maksat")
+
+
+
+
