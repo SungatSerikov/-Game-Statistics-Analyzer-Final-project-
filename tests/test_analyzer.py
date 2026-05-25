@@ -27,6 +27,13 @@ class TestAnalyzer (unittest.TestCase):
                     self.assertEqual(best["player"],"Maksat")
                     self.assertEqual(best["score"],200)
 
+                    def test_empty_player(self):
+                        empty = Player("Empty")
+                        averages = get_average_scores([empty])
+                        self.assertEqual(averages["Empty"],0.0)
+
+
+
 
 
 
